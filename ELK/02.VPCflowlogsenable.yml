@@ -1,0 +1,12 @@
+
+Description: VPC Log creation and tranfer to cloudwatch
+Metadata: Version:1.0.0.1
+Resources:
+VPCFLOWLOG:
+Type: AWS::EC2::FlowLog
+Properties:
+  DeliverLogsPermissionArn : Fn::GetAtt ["FlowLogRole", "Arn"]
+  LogGroupName : FlowLogsGroup
+  ResourceId : Fn::ImportValue VPC
+  ResourceType : VPC
+  TrafficType : ALL

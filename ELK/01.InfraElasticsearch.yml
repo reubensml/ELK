@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: ElasticsearchDomain resource
-Metadata: Version:1.0.0.0
+Metadata: Version:1.0.0.1
 Parameters:
   DomainName:
     Description: User defined Elasticsearch Domain name
@@ -82,3 +82,7 @@ Outputs:
     Value: !Ref mySecurityGroup
   SubnetId:
     Value: !Ref subnet
+  VPC:
+    Value: !Ref vpc
+    Export:
+      Name: !Sub "${AWS::StackName}-VPCID"
